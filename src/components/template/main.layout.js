@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import Appbar from '../molecules/appbar';
-import { createUseStyles } from 'react-jss';
-import withStyles from '../utils/withStyles';
+import withStyles, { useStyles } from '../utils/withStyles';
+import Sidebar from '../molecules/sidebar';
+import MainContent from '../organisms/main.content';
 const { Header, Content, Sider, Footer } = Layout;
 
 class MainLayout extends Component {
   render() {
     const {
-      classes: { layout }
+      classes: { layout, header, sider, footer }
     } = this.props;
     return (
       <Layout className={layout}>
-        <Header>
-          <Appbar />
-        </Header>
+        <Appbar />
         <Layout>
-          <Sider>Side</Sider>
-          <Content>Content</Content>
+          <Sidebar />
+          <Content>
+            <MainContent />
+          </Content>
         </Layout>
-        <Footer>Footer</Footer>
+        <Footer className={footer}>Footer</Footer>
       </Layout>
     );
   }
 }
 
-const styles = createUseStyles({
+const styles = useStyles({
   layout: {
     minHeight: '100vh'
+  },
+  header: {
+    background: '#03A9F4'
+  },
+  footer: {
+    borderTop: '10px solid #03A9F4'
   }
 });
 

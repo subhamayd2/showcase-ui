@@ -4,10 +4,11 @@ export const getDummyItems = (count = 50) => {
     const n = i + 1;
     items.push({
       _id: `item${n}`,
+      views: getRandom(10, 400),
       name: `Item ${n}`,
       price: getRandom(300, 2000),
-      currency: "INR",
-      description: `"This is a <strong>good</strong> item ${n}`,
+      currency: 'INR',
+      description: `This is a <strong>good</strong> item ${n}`,
       quantity: getRandom(10, 50),
       date: `21/0${getRandom(1, 9)}/2019`,
       photos: [
@@ -24,8 +25,8 @@ export const getDummyItems = (count = 50) => {
   return items;
 };
 
-const dummyTags = ["black", "saree", "red", "silk", "tant", "gorod", "blue"];
+const dummyTags = ['black', 'saree', 'red', 'silk', 'tant', 'gorod', 'blue'];
 
 function getRandom(min, max) {
-  return Math.random() * (max - min) + min;
+  return Math.round(Math.random() * (max - min) + min);
 }
