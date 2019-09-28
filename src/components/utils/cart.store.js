@@ -1,11 +1,11 @@
-import { decorate, observable, computed } from 'mobx';
+import { decorate, observable, computed } from "mobx";
 
 class Store {
   items = [];
   get count() {
     return this.items.length;
   }
-  addItem = (item, quantity) => {
+  addItem = (item, quantity = 1) => {
     const { quantity: q, ...restItem } = item;
     const newItem = { ...restItem, quantity };
     this.items.push(newItem);
@@ -20,4 +20,4 @@ decorate(Store, {
   count: computed
 });
 
-export default Store;
+export default new Store();

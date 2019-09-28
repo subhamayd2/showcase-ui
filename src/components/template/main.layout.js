@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Layout } from 'antd';
-import Appbar from '../molecules/appbar';
-import withStyles, { useStyles } from '../utils/withStyles';
-import Sidebar from '../molecules/sidebar';
-import MainContent from '../organisms/main.content';
-const { Header, Content, Sider, Footer } = Layout;
+import React, { Component } from "react";
+import { Layout } from "antd";
+import Appbar from "../molecules/appbar";
+import withStyles, { useStyles } from "../utils/withStyles";
+import Sidebar from "../molecules/sidebar";
+import MainContent from "../organisms/main.content";
+const { Content, Footer } = Layout;
 
 class MainLayout extends Component {
   render() {
     const {
-      classes: { layout, header, sider, footer }
+      classes: { layout, footer }
     } = this.props;
     return (
       <Layout className={layout}>
@@ -28,13 +28,13 @@ class MainLayout extends Component {
 
 const styles = useStyles({
   layout: {
-    minHeight: '100vh'
+    minHeight: "100vh"
   },
   header: {
-    background: '#03A9F4'
+    background: "#03A9F4"
   },
   footer: {
-    borderTop: '10px solid #03A9F4'
+    borderTop: "10px solid #03A9F4"
   }
 });
 

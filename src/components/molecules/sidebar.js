@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Menu, Button, Layout, Icon } from 'antd';
-import withStyles, { useStyles } from '../utils/withStyles';
-const { Item, SubMenu, Divider } = Menu;
+import React, { useState } from "react";
+import { Layout, Icon } from "antd";
+import withStyles, { useStyles } from "../utils/withStyles";
+import FilterItems from "../organisms/filterItems";
 const { Sider } = Layout;
 
-const Sidebar = ({ classes: { menu, sider } }) => {
+const Sidebar = ({ classes: { sider } }) => {
   const [collapsed, setCollapsed] = useState(false);
   const onCollapse = () => setCollapsed(!collapsed);
   return (
@@ -16,23 +16,14 @@ const Sidebar = ({ classes: { menu, sider } }) => {
       breakpoint="lg"
       collapsedWidth="0"
     >
-      <Menu className={menu}>
-        <div>
-          <Icon type="left" rotate={collapsed ? 180 : 0} />
-        </div>
-        <Divider />
-      </Menu>
+      <FilterItems />
     </Sider>
   );
 };
 
 const styles = useStyles({
-  menu: {
-    padding: 5,
-    border: 'none'
-  },
   sider: {
-    background: '#fff'
+    background: "#fff"
   }
 });
 
