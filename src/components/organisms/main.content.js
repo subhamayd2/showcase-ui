@@ -34,6 +34,24 @@ const MainContent = ({
   const { items, total, page } = state;
 
   const { filter } = FilterStore;
+  const {
+    tags,
+    price: { min, max },
+    colors,
+    sortBy
+  } = filter;
+
+  useEffect(() => {
+    let isSubscribed = true;
+    const effect = async () => {
+      const { items, total } = await getItems(1, filter);
+      if (isSubscribed) {
+        setState({ ...state, items, total, page: 1 });
+      }
+    };
+    effect();
+    return () => (isSubscribed = false);
+  }, [tags.length, min, max, colors.length, sortBy]);
 
   useEffect(() => {
     let isSubscribed = true;
@@ -45,13 +63,10 @@ const MainContent = ({
     };
     effect();
     return () => (isSubscribed = false);
-  }, [filter]);
+  }, [page]);
 
   const onPageChange = newPage => {
     setState({ ...state, page: newPage });
-    getItems(newPage).then(({ items, total }) =>
-      setState({ ...state, items, total })
-    );
   };
 
   const onSearch = value => {
