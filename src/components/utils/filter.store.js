@@ -1,11 +1,11 @@
-import { decorate, observable } from "mobx";
+import { decorate, observable } from 'mobx';
 
 class FilterStore {
   filter = {
     tags: [],
-    price: "",
+    price: { min: '', max: '' },
     colors: [],
-    sortBy: ""
+    sortBy: 'date'
   };
 
   onFilterChange = ({ target: { name, value } }) => {
