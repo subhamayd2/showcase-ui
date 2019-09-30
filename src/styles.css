@@ -19,3 +19,22 @@ code {
 .clear-margin {
   margin: 0 !important;
 }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(116, 205, 247);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(116, 205, 247);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #03a9f4;
+}

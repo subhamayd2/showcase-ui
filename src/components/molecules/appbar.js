@@ -1,8 +1,8 @@
-import React from "react";
-import { PageHeader, Typography, Button, Badge, Icon } from "antd";
-import withStyles, { useStyles } from "../utils/withStyles";
-import withStore from "../utils/withStore";
-import Store from "../utils/cart.store";
+import React from 'react';
+import { PageHeader, Typography, Button, Badge, Icon } from 'antd';
+import withStyles, { useStyles } from '../utils/withStyles';
+import withStore from '../utils/withStore';
+import Store from '../utils/cart.store';
 const { Title } = Typography;
 
 const Appbar = ({ classes: { appbar, title, badge }, store }) => {
@@ -30,13 +30,14 @@ const Appbar = ({ classes: { appbar, title, badge }, store }) => {
 
 const styles = useStyles({
   appbar: {
-    background: "#03A9F4"
+    background: '#fff',
+    borderBottom: '10px solid #03A9F4'
   },
   badge: {
-    verticalAlign: ["text-bottom", "!important"]
+    verticalAlign: ['text-bottom', '!important']
   },
   title: {
-    color: ["#fff", "!important"]
+    color: ['#03A9F4', '!important']
   }
 });
 
